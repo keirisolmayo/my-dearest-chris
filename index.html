@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+
+  <meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My love</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <div class="pastel-sticker-layer" aria-hidden="true">
+    <img class="pastel-sticker sticker-bunny" src="assets/pastel-bunny.svg" alt="">
+    <img class="pastel-sticker sticker-cloud" src="assets/pastel-cloud.svg" alt="">
+    <img class="pastel-sticker sticker-bow" src="assets/pastel-bow.svg" alt="">
+    <img class="pastel-sticker sticker-flower" src="assets/pastel-flower.svg" alt="">
+    <img class="pastel-sticker sticker-star" src="assets/pastel-star.svg" alt="">
+  </div>
+  <div class="pastel-sticker-layer strawberry-rain-layer" aria-hidden="true">
+    <img class="pastel-sticker sticker-strawberry" src="assets/pastel-strawberry.svg" alt="">
+    <img class="pastel-sticker sticker-strawberry-right" src="assets/pastel-strawberry.svg" alt="">
+    <img class="pastel-sticker sticker-strawberry-extra-left" src="assets/pastel-strawberry.svg" alt="">
+    <img class="pastel-sticker sticker-strawberry-extra-right" src="assets/pastel-strawberry.svg" alt="">
+  </div>
+
+  <!-- audio -->
+
+  <div class="audio-controls" id="audioControls" style="position:fixed; bottom:20px; right:20px; z-index:1000;">
+
+    <button class="audio-btn" id="audioToggle" type="button" onclick="toggleAudio()" aria-label="Putar musik" aria-pressed="false">
+      <span class="audio-play-icon" aria-hidden="true">▶</span>
+      <span class="audio-pause-icon" aria-hidden="true" hidden>Ⅱ</span>
+      <span class="audio-visualizer" aria-hidden="true"><i></i><i></i><i></i></span>
+    </button>
+
+    <span class="audio-status" id="audioStatus" role="status" hidden></span>
+
+    <span class="password-hint" id="passwordHint" hidden>psst... password-nya: <strong>pipi pie</strong></span>
+
+  </div>
+
+  <audio id="backgroundAudio" src="assets/Aku%20Milikmu.mp3" preload="none" loop></audio>
+
+
+<!-- INTRO PAGE -->
+
+<div id="introPage">
+
+  <div class="intro-container">
+
+    <div class="page-kicker"><span>01 / 09</span> PAGE 01 · THE INTRO</div>
+
+    <div class="intro-content">
+
+      <section class="intro-ad" id="introAd" aria-live="polite">
+
+        <span class="ad-label">MY DEAREST, CHRISTIANUS PRIMAVITO</span>
+
+        <h1 class="intro-title">hepy bday sweetie pie yey</h1>
+
+
+
+        <p class="soft-disclaimer">
+
+          <span>♡</span> here's a letter for you, but the words get confused and the conversation dies.
+
+apologize for the past. talk some shit, take it back
+
+        </p>
+
+
+
+<div class="intro-love-reveal">
+  <button class="yes-btn intro-ad-btn" type="button" aria-label="love" aria-controls="introLoveMessage" aria-expanded="false">
+
+          ♡
+
+        </button>
+  <span class="intro-love-message" id="introLoveMessage" aria-live="polite" hidden></span>
+</div>
+
+      </section>
+
+
+
+      <form class="intro-form" id="introForm" aria-label="Form identitas">
+
+        <h2 class="intro-form-title">isi bio km</h2>
+
+
+
+        <div class="intro-field-group">
+          <label class="intro-field-label" for="playerName">nama</label>
+          <input
+            type="text"
+            id="playerName"
+            class="intro-input"
+            placeholder="gabole ngarang"
+            maxlength="50"
+            required
+          >
+        </div>
+        <div class="intro-field-group">
+          <label class="intro-field-label" for="playerBirthday">tanggal lahir</label>
+          <input
+            type="date"
+            id="playerBirthday"
+            class="intro-input"
+            aria-describedby="birthdayError"
+            required
+          >
+          <p class="intro-validation-message" id="birthdayError" role="alert" hidden></p>
+        </div>
+
+
+
+        <button
+
+          class="yes-btn intro-btn"
+
+          type="button"
+
+          onclick="startEnvelope()"
+
+        >
+
+          cudah
+
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+  <!-- judul page 1 -->
+
+  <h1 class="envelope-title" style="display:none;">mw buka surat cinta dariku ga sweetie pie</h1>
+
+
+
+  <!-- surat cinta page 1 -->
+
+  <div class="envelope-section" style="display:none;">
+
+  <div class="page-kicker" id="letterPageKicker"><span>02 / 09</span> PAGE 02 · THE LETTER</div>
+
+    <div class="envelope">
+
+      <div class="paper" id="paper">
+
+      </div>
+
+      <div class="flap" aria-hidden="true"></div>
+
+      <img class="body envelope-body-art" src="assets/envelope-body.svg" alt="Pastel pink envelope">
+
+    </div>
+
+
+
+  <!-- opsi mw dan gmw -->
+
+    <div class="button-container" id="buttonContainer">
+
+      <button class="yes-btn" onclick="answerYes()">mw bgttt</button>
+
+      <button class="no-btn" id="noBtn" onclick="answerNo()">ak gmw heumph!!!</button>
+
+    </div>
+
+    <div class="next-container" id="nextContainer">
+
+      <button class="yes-btn next-btn" id="nextBtn" onclick="showContent()">mw mw</button>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- note yapping page 2 -->
+
+  <div class="long-note-container" id="noteContainer">
+
+    <div class="page-kicker"><span>03 / 09</span> PAGE 03 · LITTLE THOUGHTS</div>
+
+    <button class="long-note-button" onclick="toggleLongNote()">
+
+      apeni
+
+    </button>
+
+    <div class="long-note-content" id="longNote">
+
+      <p>hai.</p>
+
+      <p>kuharap km ga bosen sama aku, aku cm pgn ngerasa cukup. jujur aja first time aku nerima km aku ga seserius itu ngejalanin hubungan, aku cm pgn km g ninggalin aku aja diawal. tp lama kelamaan aku sadar klo aku denial, ga mungkin jg aku pgn mertahanin hubungan yg prnh bikin sakit, tp ya pada akhirnya aku pgnnya serius ke km jdinya aku sering rewel minta diperhatikan. anything you want, aku sesayangg itu sm km love language ku act of service jd kubikinin km ini krn aku seneng ngsi sesuatu ke km lewat usahaku :p</p>
+
+
+
+    </div>
+<div class="note-next-container" id="noteNextContainer">
+
+      <button class="yes-btn next-btn" onclick="startVisualNovel()">okay</button>
+
+    </div>
+
+  </div>
+
+
+
+  <div id="errorEnding" style="display: none;">
+
+    <h1>ERROR 404</h1>
+
+    <p class="error-title">LOVE NOT FOUND</p>
+
+
+
+    <div class="error-message">
+
+      <p id="errorEndingMessage"></p>
+
+    </div>
+
+
+
+    <button onclick="location.reload()">COBA LAGI</button>
+
+  </div>
+<div id="tap-sparkles" aria-hidden="true"></div>
+
+  <div class="final-content" id="finalContent">
+
+    <div class="page-kicker"><span>05 / 09</span> PAGE 05 · LITTLE LOVE GAME</div>
+
+    <div class="cat-card">
+
+      <div class="bubble-text" id="finalMessage" aria-live="polite">aku sayang km</div>
+
+      <div class="cat-icon" role="img" aria-label="Kucing hitam imut"><img src="assets/black-cat.svg" alt="Kucing hitam dengan pita pink"></div>
+
+    </div>
+
+    <div class="romantic-idea">
+
+      <button class="yes-btn idea-btn" onclick="showRomanticIdea()">mulai misi</button>
+
+      <p class="idea-note" id="ideaNote">tangkap semua hatinya klo km sayang aku</p>
+
+      <div class="love-game" id="loveGame">
+
+        <div class="game-area" id="gameArea"></div>
+
+        <div class="love-meter" id="loveMeter">
+
+          <div class="meter-label">seberapa sayang ${playerName} ke aku</div>
+
+          <div class="meter-track"><div class="meter-bar" id="meterBar"></div></div>
+
+          <div class="meter-percentage" id="meterPercentage">0%</div>
+
+          <div class="lock-section" id="lockSection" style="display:none;">
+
+            <div class="lock-box" id="lockBox">🔒</div>
+
+            <div class="key-icon" id="keyIcon" draggable="true">🔑</div>
+
+            <div class="lock-result" id="lockResult">seret kuncinya ke gembok buat buka hatiku</div>
+
+          </div>
+
+          <div class="unlock-next-container" id="unlockNextContainer" style="display:none; margin-top: 18px;">
+
+            <button class="yes-btn next-btn" onclick="showPasswordPage()">secret</button>
+
+          </div>
+
+        </div>
+
+</div>
+</div>
+
+  </div>
+
+
+
+  <div id="passwordPage" style="display:none;">
+
+    <div class="password-container">
+
+      <div class="page-kicker"><span>06 / 09</span> PAGE 06 · SECRET GATE</div>
+
+      <h1>ada password dulu</h1>
+
+      <form class="password-form" onsubmit="event.preventDefault(); submitPassword();">
+
+        <label for="secretPassword">password</label>
+
+        <input id="secretPassword" type="password" autocomplete="off" required>
+
+        <p class="password-error" id="passwordError" aria-live="polite"></p>
+
+        <button class="yes-btn" type="submit">next</button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- visual novel -->
+
+  <div id="visualNovel" style="display:none;">
+
+    <div class="page-kicker"><span>04 / 09</span> PAGE 04 · THE WHITE CAT QUIZ</div>
+
+    <div class="vn-character-wrap"><img class="vn-cat-art" src="assets/white-cat-kei.svg" alt="Kei"/><span class="vn-cat-name">kei</span><div class="vn-character" id="vnCharacter" aria-hidden="true"></div></div>
+
+    <div class="vn-text" id="vnText"></div>
+
+    <div class="vn-timer" id="gameTimer" aria-live="polite"></div>
+
+    <div class="vn-choices" id="vnChoices"></div>
+
+  </div>
+
+
+
+    <!-- mini game page 3: pastel cat memory match -->
+  <div id="newPage" style="display:none;">
+    <div class="new-page-container memory-page">
+      <div class="page-kicker"><span>07 / 09</span> PAGE 07 · A LITTLE BRAIN BREAK</div>
+      <h1>temukan kartu2 imut ini</h1>
+      <p class="game-instruction">cocokin gambarnya yuks</p>
+      <div class="memory-status"><span>kecocokan: <strong id="memoryPairs">0</strong>/6</span><span>langkah: <strong id="memoryMoves">0</strong></span></div>
+      <div class="memory-grid" id="memoryGrid" aria-label="Pastel memory matching game"></div>
+      <p class="memory-message" id="memoryMessage" aria-live="polite">pilih 2 kartu buat mulai!!</p>
+      <button class="yes-btn" id="memoryRestart" type="button">kocok lagi ↻</button>
+    </div>
+  </div><div id="movieGallery" style="display:none;">
+    <div class="new-page-container notes-two-page">
+      <div class="page-kicker"><span>08 / 09</span> PAGE 08 · LITTLE THOUGHTS</div>
+      <h1>notes <span class="title-sparkle">♡</span></h1>
+      <p class="gallery-intro">another tiny corner for all the things that keep popping up in my head</p>
+      <div class="yap-board" id="movieGalleryList">
+        <article class="yap-card yap-card-pink"><img class="yap-doodle" src="assets/pastel-bow.svg" alt=""/><span class="yap-label">random thought</span><h2>perspektif</h2><p>yah jujur km kdg km kasar atau badmood sm aku.. aku gatau salahku dimana. aku gatau yg km maksud ganggu itu apa..</p><span class="yap-stamp">♡ keep this</span></article>
+        <article class="yap-card yap-card-blue"><img class="yap-doodle" src="assets/pastel-cloud.svg" alt=""/><span class="yap-label">tiny wish</span><h2>keinginan</h2><p>klo permintaanku dikabulin setidaknya aku pgn seminggu penuh spent waktu bareng sm km smpe selamanya juga boleh</p><span class="yap-stamp">☁ daydream</span></article>
+        <article class="yap-card yap-card-yellow"><img class="yap-doodle" src="assets/pastel-sparkle.svg" alt=""/><span class="yap-label">little reminder</span><h2>more soft days, please</h2><p>kuharap km bisa nikmatin hidupmu, usaha dan kerja keras yg km lakukan ga sia2, dijauhkan dri masalah yang ada aku pgn km berkembang jd lebih baik. semangat!</p><span class="yap-stamp">✦ amen</span></article>
+        <article class="yap-card yap-card-lilac"><img class="yap-doodle" src="assets/pastel-strawberry.svg" alt=""/><span class="yap-label">psst...</span><h2>motivasiku</h2><p>aku bikin ini buat kembangin skill sm ksi km bday letter krn aku suka create something meaningful</p><span class="yap-stamp">made by kei</span></article>
+      </div></span><h2>
+      <div class="page-navigation"><span class="page-dots">04 / 04 / 2005</span><button class="yes-btn next-btn" onclick="showLastPage()">one last page →</button></div>
+    </div>
+  </div>
+
+  <div id="lastPage" style="display:none;">
+    <div class="new-page-container last-page-container">
+      <div class="page-kicker"><span>09 / 09</span> THE LITTLE ENDING</div>
+      <h1>a tiny scrapbook of us</h1>
+      <p class="gallery-intro">not a grand finale, just a small shelf of feelings and little things worth keeping.</p>
+      <div class="drive-scrapbook-link">
+        <div class="drive-paperclip" aria-hidden="true">✿</div>
+        <div class="drive-link-copy"><span class="scrapbook-label">A LITTLE ARCHIVE</span><h2>my dearest chris · drive</h2><p>a little collection of folders and memories I put together. open the folder to explore it.</p></div>
+        <a class="drive-open-link" href="https://drive.google.com/drive/folders/1SGjAQGUbXgYKwdDe3tw0UDJOULrMc5E3" target="_blank" rel="noopener noreferrer">open the drive ↗</a>
+      </div>
+      <div class="scrapbook-grid">
+        <div class="scrapbook-note scrapbook-note-pink"><span class="scrapbook-icon">✿</span><h2>the things i keep</h2><p>songs that get stuck in my head, conversations i remember at random, and small moments that become stories later</p></div>
+        <div class="scrapbook-note scrapbook-note-blue"><span class="scrapbook-icon">☁</span><h2>the things i hope</h2><p>that life gives you kind surprises, that you find reasons to laugh, and that you keep finding things you genuinely love</p></div>
+        <div class="scrapbook-note scrapbook-note-yellow"><span class="scrapbook-icon">✦</span><h2>the things i made</h2><p>a little website, a few games, too many tiny details, and a whole lot of time spent figuring out how to make them work</p></div>
+      </div>
+      <div class="last-page-cat"><div class="last-page-cat-pair"><img src="assets/black-cat.svg" alt="Kucing hitam dengan pita pink"><img src="assets/white-cat-kei.svg" alt="Kucing putih Kei"></div><div><span class="last-page-small-title">a note from kei</span><p>thank you for reaching the end of my little corner of the internet. take care of yourself, okay?</p></div></div>
+      <div class="tiny-notes-footer"><img src="assets/pastel-sparkle.svg" alt=""/><div><strong>dengerin suara kecilku..</strong><p>last but not least</p><audio class="voice-note-audio" controls preload="none" aria-label="WhatsApp audio"><source src="assets/whatsapp%20audio.ogg" type="audio/ogg"></audio></div><img src="assets/pastel-flower.svg" alt=""/></div>
+      <div class="last-page-ending" aria-live="polite"><span>made with care by kei</span><span class="ending-sparkle">✦</span><span>the end</span></div>
+    </div>
+  </div>
+
+<!-- JS -->
+
+  <!-- Ubah teks dinamis di sini. Teks lain yang tampil langsung di halaman bisa diedit pada HTML di atas. -->
+  <script type="application/json" id="siteCopy">
+  {
+    "validation": {
+      "nameRequired": "jgn dikosongin namanya!!",
+      "birthdayRequired": "bayi ilegal kmu gd akte",
+      "birthdayIncorrect": "tanggal lahirnya salah!!"
+    },
+    "paper": "{name} sayangku cintaku bayiku imutku manisku pujaan hatiku, my honey bunny sweetie pie km mw liat isi hati ku gk? hehe :3",
+    "meterLabel": "seberapa sayang {name} ke aku",
+    "finalMessage": "klik kucinknya {name}",
+    "introLoveMessage": "aku punya surat kecil buat km",
+    "catMessages": [
+      "aku sayang km",
+      "semoga di masa depan kita berubah jd lebih baik",
+      "makasih prnh jd alasan buat aku termotivasi"
+    ],
+    "loveGame": {
+      "lockPrompt": "seret kuncinya ke gembok buat buka hatiku",
+      "unlocked": "buka gemboknya {name}!!",
+      "caught": "hati ditangkap {caught}/{target}."
+    },
+    "passwordIncorrect": "salah!",
+    "quiz": {
+      "waiting": "aku nungguin loh {name}",
+      "timer": "Waktu: {seconds}s",
+      "character": "Kei",
+      "scenes": [
+        {
+          "text": "ayo tes seberapa {name} kenal aku",
+          "choices": [
+            { "text": "siap donk", "correct": true }
+          ]
+        },
+        {
+          "text": "warna favorit ku?",
+          "choices": [
+            { "text": "ungu", "correct": false },
+            { "text": "biru", "correct": true }
+          ]
+        },
+        {
+          "text": "makanan favorit ku?",
+          "choices": [
+            { "text": "ayam kecap", "correct": true },
+            { "text": "mie goreng", "correct": false }
+          ]
+        },
+        {
+          "text": "genre favorit ku?",
+          "choices": [
+            { "text": "horor", "correct": false },
+            { "text": "romcom", "correct": true }
+          ]
+        },
+        {
+          "text": "hobi ku apa?",
+          "choices": [
+            { "text": "ngegame", "correct": false },
+            { "text": "denger musik", "correct": true }
+          ]
+        },
+        {
+          "text": "aku lebih suka rasa apa?",
+          "choices": [
+            { "text": "pedas gurih", "correct": false },
+            { "text": "manis", "correct": true }
+          ]
+        }
+      ]
+    },
+    "badEnding": "{name} ga cayang!!!",
+    "memory": {
+      "hiddenCard": "hidden pastel card",
+      "allFound": "udah ketemu semua pasangannya!!",
+      "start": " ayo mulai!!",
+      "match": "one tiny win for {name} ♡",
+      "noMatch": "ayo coba lagi {name}"
+    }
+  }
+  </script>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
