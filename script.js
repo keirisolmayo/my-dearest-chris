@@ -247,7 +247,7 @@ function createLoveGameHearts(amount) {
   for (let i = 0; i < amount; i++) {
     const heart = document.createElement("div");
     heart.className = "game-heart";
-    heart.innerHTML = `<img src="assets/${["pastel-bow.svg","pastel-flower.svg","pastel-star.svg","pastel-strawberry.svg","pastel-sparkle.svg"][i%5]}" alt="" style="width:100%;height:100%;object-fit:contain">`;
+    heart.innerHTML = `<img src="${["pastel-bow.svg","pastel-flower.svg","pastel-star.svg","pastel-strawberry.svg","pastel-sparkle.svg"][i%5]}" alt="" style="width:100%;height:100%;object-fit:contain">`;
     heart.style.left = Math.random() * 70 + 10 + "%";
     heart.style.top = Math.random() * 60 + 10 + "%";
     heart.addEventListener("click", () => {
@@ -478,7 +478,7 @@ function animateLoveMeter(targetPercent) {
 function createConfetti() {
   const confetti = document.createElement("div");
   const stickers = ["pastel-bow.svg", "pastel-flower.svg", "pastel-star.svg", "pastel-cloud.svg", "pastel-sparkle.svg"];
-  confetti.innerHTML = `<img src="assets/${stickers[Math.floor(Math.random() * stickers.length)]}" alt="" style="width:100%;height:100%;object-fit:contain">`;
+  confetti.innerHTML = `<img src="${stickers[Math.floor(Math.random() * stickers.length)]}" alt="" style="width:100%;height:100%;object-fit:contain">`;
   confetti.style.position = "fixed";
   confetti.style.width = (Math.random() * 14 + 28) + "px";
   confetti.style.height = confetti.style.width;
@@ -607,9 +607,9 @@ function endVisualNovel() {
   showFinalContent();
 }
 const memoryDeck = [
-  {name:"bow", src:"assets/pastel-bow.svg"}, {name:"flower", src:"assets/pastel-flower.svg"},
-  {name:"star", src:"assets/pastel-star.svg"}, {name:"strawberry", src:"assets/pastel-strawberry.svg"},
-  {name:"cloud", src:"assets/pastel-cloud.svg"}, {name:"moon", src:"assets/pastel-moon.svg"}
+  {name:"bow", src:"pastel-bow.svg"}, {name:"flower", src:"pastel-flower.svg"},
+  {name:"star", src:"pastel-star.svg"}, {name:"strawberry", src:"pastel-strawberry.svg"},
+  {name:"cloud", src:"pastel-cloud.svg"}, {name:"moon", src:"pastel-moon.svg"}
 ];
 let memoryFirst=null, memoryLock=false, memoryFound=0, memoryMoves=0;
 function startMemoryGame(){
@@ -636,7 +636,7 @@ function returnToIntro(){
   const form=document.getElementById("introForm"),ad=document.getElementById("introAd"); if(form){form.classList.add("is-visible");form.style.removeProperty("display");} if(ad){ad.hidden=false;ad.classList.remove("is-hidden");}
   const name=document.getElementById("playerName"),birthday=document.getElementById("playerBirthday");if(name)name.value="";if(birthday)birthday.value="";
 }
-(function(){const choices=["pastel-bow.svg","pastel-flower.svg","pastel-star.svg","pastel-cloud.svg","pastel-moon.svg","pastel-sparkle.svg","pastel-bunny.svg","pastel-envelope.svg"];let n=0;document.addEventListener("pointerdown",e=>{if(e.target.closest("input,textarea,select,[type=range]"))return;const layer=document.getElementById("tap-sparkles");if(!layer)return;const img=document.createElement("img");img.src="assets/"+choices[n++%choices.length];img.className="tap-sticker-pop";img.alt="";const jitter=()=>Math.round(Math.random()*10-5);img.style.left=(e.clientX+jitter())+"px";img.style.top=(e.clientY+jitter())+"px";img.style.setProperty("--sticker-tilt",(Math.random()*26-13)+"deg");layer.appendChild(img);setTimeout(()=>img.remove(),950);});})();
+(function(){const choices=["pastel-bow.svg","pastel-flower.svg","pastel-star.svg","pastel-cloud.svg","pastel-moon.svg","pastel-sparkle.svg","pastel-bunny.svg","pastel-envelope.svg"];let n=0;document.addEventListener("pointerdown",e=>{if(e.target.closest("input,textarea,select,[type=range]"))return;const layer=document.getElementById("tap-sparkles");if(!layer)return;const img=document.createElement("img");img.src=""+choices[n++%choices.length];img.className="tap-sticker-pop";img.alt="";const jitter=()=>Math.round(Math.random()*10-5);img.style.left=(e.clientX+jitter())+"px";img.style.top=(e.clientY+jitter())+"px";img.style.setProperty("--sticker-tilt",(Math.random()*26-13)+"deg");layer.appendChild(img);setTimeout(()=>img.remove(),950);});})();
 
 document.addEventListener("DOMContentLoaded",()=>{const restart=document.getElementById("memoryRestart");if(restart)restart.addEventListener("click",startMemoryGame);});
 
